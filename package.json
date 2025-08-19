@@ -1,0 +1,61 @@
+{
+  "name": "portfolio-ivesmendes",
+  "version": "1.0.0",
+  "description": "Portfólio profissional moderno e responsivo de Ives Mendes",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'Build não necessário para projeto estático'",
+    "deploy": "echo 'Configure seu processo de deploy'",
+    "lint:html": "npx htmlhint index.html",
+    "lint:css": "npx stylelint styles.css",
+    "lint:js": "npx eslint script.js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "format": "npx prettier --write .",
+    "test": "echo 'Testes não configurados'"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "frontend",
+    "fullstack",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "modern"
+  ],
+  "author": {
+    "name": "Ives Mendes",
+    "email": "ives.mendes@email.com",
+    "url": "https://github.com/ivesmendes"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivesmendes/portfolio-ivesmendes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivesmendes/portfolio-ivesmendes/issues"
+  },
+  "homepage": "https://ivesmendes.github.io/portfolio-ivesmendes",
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "live-server": "^1.2.2",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.11.0",
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
