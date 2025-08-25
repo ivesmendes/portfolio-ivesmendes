@@ -97,15 +97,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Header */
@@ -114,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -152,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-primary);
+    color: white;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
@@ -187,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--text-primary);
+    background: white;
     transition: all 0.3s ease;
 }
 
@@ -674,7 +678,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .timeline-content {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-md);
@@ -687,18 +691,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .company {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-weight: 500;
     margin-right: 1rem;
 }
 
 .period {
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 0.875rem;
 }
 
 .timeline-content p {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -710,12 +714,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .achievement {
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
+    background: var(--primary-color);
+    color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-size: 0.875rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.timeline-actions .btn-secondary {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.timeline-actions .btn-secondary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 /* Contact Section */
