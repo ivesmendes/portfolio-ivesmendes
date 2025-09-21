@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Imprensa — Agespisa (prints)</title>
+  <meta name="description" content="Registro em imagens da matéria sobre o sistema de busca de contatos da Agespisa."/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilos específicos da página de notícia (reaproveita suas variáveis) */
+    .news-header { position: sticky; top: 0; z-index: 100; background: var(--bg-dark); border-bottom: 1px solid var(--border-color); }
+    .news-header .container { display: flex; align-items: center; padding: 1rem 2rem; }
+    .news-hero { background: var(--bg-secondary); padding: 3rem 0 1rem; }
+    .news-hero h1 { text-align: center; margin-bottom: .5rem; }
+    .news-hero p { text-align: center; color: var(--text-secondary); }
+
+    .news-gallery-wrap { background: var(--bg-primary); }
+    .news-gallery { padding: 3rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .news-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-md); cursor: zoom-in; }
+    .news-item img { width: 100%; height: 100%; display: block; }
+
+    .lightbox { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.85); z-index: 2000; padding: 2rem; }
+    .lightbox.hidden { display: none; }
+    .lightbox img { max-width: min(100%, 1100px); max-height: 90vh; border-radius: .75rem; box-shadow: var(--shadow-xl); }
+    .lightbox-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- Topo simples com botão de voltar -->
+  <div class="news-header">
+    <div class="container">
+      <a class="btn btn-secondary btn-sm" href="index.html#experience">
+        <i class="fas fa-arrow-left"></i> Voltar ao portfólio
+      </a>
+    </div>
+  </div>
+
+  <!-- Título -->
+  <section class="news-hero">
+    <div class="container">
+      <h1 class="section-title">Imprensa — Agespisa</h1>
+      <p>O site original saiu do ar. Abaixo estão os prints registrados da matéria.</p>
+    </div>
+  </section>
+
+  <!-- Galeria de prints -->
+  <section class="news-gallery-wrap">
+    <div class="container">
+      <div class="news-gallery">
+        <a class="news-item" href="images/noticia1.PNG">
+          <img src="images/noticia1.PNG" alt="Print 1 da matéria da Agespisa" loading="lazy">
+        </a>
+        <a class="news-item" href="images/noticia2.PNG">
+          <img src="images/noticia2.PNG" alt="Print 2 da matéria da Agespisa" loading="lazy">
+        </a>
+        <a class="news-item" href="images/noticia3.PNG">
+          <img src="images/noticia3.PNG" alt="Print 3 da matéria da Agespisa" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Fechar visulização">&times;</button>
+    <img src="" alt="Visualização ampliada"/>
+  </div>
+
+  <script>
+    // Lightbox simples
+    document.addEventListener('DOMContentLoaded', () => {
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      const close = lb.querySelector('.lightbox-close');
+
+      document.querySelectorAll('.news-item').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          lbImg.src = a.getAttribute('href');
+          lb.classList.remove('hidden');
+          lb.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      function closeLb() {
+        lb.classList.add('hidden');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+      }
+
+      close.addEventListener('click', closeLb);
+      lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+    });
+  </script>
+</body>
+</html>
